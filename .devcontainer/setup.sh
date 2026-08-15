@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LOG="$SCRIPT_DIR/setup.log"
+exec > >(tee -a "$LOG") 2>&1
+
+echo "=== Setup started at $(date) (SCRIPT_DIR=$SCRIPT_DIR) ==="
 echo "=== [1/6] Update apt & install base utilities ==="
 apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \

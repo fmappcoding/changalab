@@ -2,7 +2,7 @@
   "name": "ChangaLab Runtime (PHP/Composer/MySQL)",
   "image": "mcr.microsoft.com/devcontainers/ubuntu:22.04",
   "features": {},
-  "onCreateCommand": "bash /workspace/.devcontainer/setup.sh > /workspace/.devcontainer/setup.log 2>&1",
+  "onCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/setup.sh",
   "customizations": {
     "vscode": {
       "extensions": [
