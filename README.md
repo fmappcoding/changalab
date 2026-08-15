@@ -60,7 +60,7 @@ sudo service mysql start
 
 ```bash
 sudo cp changalab.nginx /etc/nginx/sites-available/changalab
-sudo ln -sf /etc/atelier/sites-available/changalab /etc/nginx/sites-enabled/changalab
+sudo ln -sf /etc/nginx/sites-available/changalab /etc/nginx/sites-enabled/changalab
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo nginx -s reload
 ```
@@ -113,7 +113,7 @@ sudo mysql changalab -e "DROP DATABASE changalab; CREATE DATABASE changalab CHAR
 
 ### 7. حل مشكلة الأصول (CSS/JS) — `localhost:8080`
 
-خلف بروكسي Codespace يرسل Laravel عناوين الأصول كـ `http://localhost:8080/...`
+خلف بروكسي Codespace يولّد Laravel عناوين الأصول كـ `http://localhost:8080/...`
 وهي غير قابلة للوصول من الخارج (صفحة بلا تنسيق). هذا مُصلَح مسبقاً في المستودع:
 
 - `Files/index.php` يقرأ ترويسات `X-Forwarded-Host` / `X-Forwarded-Proto` ويضبط المضيف قبل بدء Laravel.
