@@ -1,0 +1,25 @@
+{
+  "name": "ChangaLab Dev Server",
+  "image": "mcr.microsoft.com/devcontainers/php:8.3",
+  "features": {
+    "ghcr.io/devcontainers/features/mysql:2": {
+      "version": "8.0",
+      "rootPassword": "root",
+      "database": "changalab",
+      "username": "changalab",
+      "password": "changalab"
+    }
+  },
+  "onCreateCommand": "sudo docker-php-ext-install bcmath gd mbstring mysqli pdo_mysql xml zip intl exif",
+  "postCreateCommand": "cd Files/core && composer install --no-interaction --prefer-dist",
+  "forwardPorts": [80, 3306, 8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "mikestead.dotenv"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
