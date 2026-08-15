@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChangaLab - Run on GitHub Codespaces</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="assets/images/favicon.png"
+      sizes="16x16"
+      type="image/png"
+    />
+    <!-- bootstrap 5  -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href="assets/css/lib/font-awesome.css" />
+    <!-- lineawesome font -->
+    <link rel="stylesheet" href="assets/css/lib/line-awesome.css" />
+    <!-- Simplebar Js  -->
+    <link rel="stylesheet" href="assets/css/lib/simplebar.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#docNav" data-bs-offset="50">
+    <header class="mobile-header">
+      <div class="container">
+        <div class="row g-4 align-items-center justify-content-between">
+          <div class="col-6">
+            <!-- Logo  -->
+            <a href="index.html" class="logo">
+              <img
+                src="assets/images/logo.png"
+                alt="images"
+                class="img-fluid logo__is"
+              />
+            </a>
+            <!-- Logo End -->
+          </div>
+          <div class="col-6">
+            <div class="text-end">
+              <button type="button" class="btn btn--sqr sidebar-toggler">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="doc">
+      <div class="doc__sidebar" id="docNav">
+        <div class="doc-logo">
+          <!-- Logo  -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/logo.png"
+              alt="images"
+              class="img-fluid logo__is"
+            />
+          </a>
+          <!-- Logo End -->
+        </div>
+        <nav class="doc-nav" data-simplebar>
+          <ul class="list doc-nav__list">
+            <li>
+              <a href="index.html" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-arrow-left"></i>
+                  <span class="d-block">back to docs</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#overview" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-info-circle"></i>
+                  <span class="d-block">overview</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#create" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-plus-circle"></i>
+                  <span class="d-block">create codespace</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#automatic" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-robot"></i>
+                  <span class="d-block">automatic setup</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#manual" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-terminal"></i>
+                  <span class="d-block">manual setup</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#install" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-cog"></i>
+                  <span class="d-block">run the installer</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#assets" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-paint-brush"></i>
+                  <span class="d-block">fix css / js (localhost)</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#backup" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-database"></i>
+                  <span class="d-block">backup &amp; restore</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#faq" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-question"></i>
+                  <span class="d-block">faq</span></span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          <p class="m-0 text--white px-3 text-center">
+            Copyright ©
+            <a href="https://viserlab.com/" class="t-link t-link--canvas"
+              >ViserLab</a
+            >
+            2025
+          </p>
+        </div>
+      </div>
+      <div class="doc__body">
+        <!-- OVERVIEW -->
+        <div id="overview" class="section--sm section--first">
+          <div class="list">
+            <div class="doc-head">
+              <div class="doc-head__content">
+                <h5 class="doc-head__title">Run ChangaLab on Codespaces</h5>
+                <span class="doc-head__sub-title">
+                  GitHub Codespaces + ChangaLab
+                </span>
+              </div>
+            </div>
+            <div class="doc-body">
+              <p class="mt-4 lg-text">
+                This guide explains how to run ChangaLab inside a
+                <strong>GitHub Codespace</strong>. A Codespace is a cloud
+                development environment that runs behind the GitHub proxy at
+                <code>https://&lt;codespace-name&gt;-8080.app.github.dev/</code>.
+                Because the proxy hides the real hostname, a few adjustments
+                are required so the site (and its CSS/JS assets) load
+                correctly from your browser.
+              </p>
+              <p class="mt-4 lg-text">
+                The repository already contains everything needed for a
+                one-click experience:
+              </p>
+              <ul class="list list--base" style="--gap: 0.5rem">
+                <li>
+                  <p class="m-0">
+                    <code>.devcontainer/devcontainer.json</code> &amp;
+                    <code>.devcontainer/setup.sh</code> — install nginx,
+                    PHP-FPM and MariaDB, apply the nginx config, create the
+                    database and fix storage permissions automatically.
+                  </p>
+                </li>
+                <li>
+                  <p class="m-0">
+                    <code>changalab.nginx</code> — the reference nginx site
+                    config (with <code>absolute_redirect off;</code>).
+                  </p>
+                </li>
+                <li>
+                  <p class="m-0">
+                    <code>Files/index.php</code> &amp;
+                    <code>Files/core/app/Http/Middleware/TrustProxies.php</code>
+                    — make Laravel trust the proxy and generate public asset
+                    URLs instead of <code>localhost:8080</code>.
+                  </p>
+                </li>
+                <li>
+                  <p class="m-0">
+                    <code>scripts/backup.sh</code> — database backup &amp;
+                    restore utility.
+                  </p>
+                </li>
+              </ul>
+              <blockquote class="blockquote text--accent">
+                If you prefer to set things up by hand, the
+                <a class="t-link" href="#manual">manual setup</a> section walks
+                through every command.
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- CREATE -->
+        <div id="create" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Create the Codespace</h5>
+                    <span class="doc-head__sub-title">
+                      Spin up a cloud environment from the repo
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <p class="lead">
+                    You can create a Codespace from the repository page or from
+                    your terminal.
+                  </p>
+                  <h5>Option A — GitHub UI</h5>
+                  <hr />
+                  <ul class="list list--base" style="--gap: 0.5rem">
+                    <li>
+                      <p class="m-0">
+                        Go to the repository and click
+                        <strong>Code → Codespaces → Create codespace on main</strong>.
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        Wait a minute or two while the container image builds
+                        and <code>setup.sh</code> installs the services.
+                      </p>
+                    </li>
+                  </ul>
+                  <h5 class="mt-4">Option B — GitHub CLI</h5>
+                  <hr />
+                  <pre class="doc-code"><code>gh codespace create --repo fmappcoding/changalab --branch main</code></pre>
+                  <h5 class="mt-4">Open a terminal inside the Codespace</h5>
+                  <hr />
+                  <pre class="doc-code"><code>gh codespace ssh --codespace &lt;CODESPACE_NAME&gt;</code></pre>
+                  <p class="m-0 mt-3">
+                    The Codespace name looks like
+                    <code>laughing-yodel-g4r75gx69x5whv4p7</code>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AUTOMATIC -->
+        <div id="automatic" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Automatic Setup</h5>
+                    <span class="doc-head__sub-title">
+                      Everything configured on first launch
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <p class="lead">
+                    With the bundled <code>.devcontainer</code>, no manual
+                    commands are required. When the Codespace is created,
+                    <code>setup.sh</code> runs automatically and:
+                  </p>
+                  <ul class="list list--base" style="--gap: 0.5rem">
+                    <li><p class="m-0">Installs nginx + PHP 8.3-FPM + MariaDB.</p></li>
+                    <li><p class="m-0">Runs <code>composer install</code> in <code>Files/core</code>.</p></li>
+                    <li>
+                      <p class="m-0">
+                        Copies <code>changalab.nginx</code> to
+                        <code>/etc/nginx/sites-available/changalab</code> and
+                        enables it.
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        Starts the services and creates the
+                        <code>changalab</code> database + user
+                        (<code>changalab</code> / <code>changalab123</code>).
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        Fixes <code>storage</code> permissions to <code>0775</code>.
+                      </p>
+                    </li>
+                  </ul>
+                  <p class="mt-4 lg-text">
+                    If the script did <strong>not</strong> run (e.g. you attached
+                    the repo to an existing Codespace), trigger it manually:
+                  </p>
+                  <pre
+                    class="doc-code"
+                  ><code>gh codespace ssh --codespace &lt;CODESPACE_NAME&gt; -- "bash /workspaces/changalab/.devcontainer/setup.sh"</code></pre>
+                  <p class="mt-3 m-0">
+                    Once it finishes, simply open the forwarded
+                    <strong>8080</strong> port in your browser and continue to
+                    <a class="t-link" href="#install">Run the Installer</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MANUAL -->
+        <div id="manual" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Manual Setup</h5>
+                    <span class="doc-head__sub-title">
+                      Step-by-step commands (if not using devcontainer)
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <h5>1. Install services</h5>
+                  <hr />
+                  <pre class="doc-code"><code>sudo apt-get update
+sudo apt-get install -y nginx php8.3-fpm php8.3-mysql php8.3-mbstring \
+  php8.3-xml php8.3-curl php8.3-zip php8.3-gd php8.3-bcmath mariadb-server
+sudo service nginx start
+sudo service php8.3-fpm start
+sudo service mysql start</code></pre>
+
+                  <h5 class="mt-4">2. Apply the nginx config</h5>
+                  <hr />
+                  <pre class="doc-code"><code>sudo cp changalab.nginx /etc/nginx/sites-available/changalab
+sudo ln -sf /etc/nginx/sites-available/changalab /etc/nginx/sites-enabled/changalab
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo nginx -t && sudo nginx -s reload</code></pre>
+                  <p class="m-0 mt-2">
+                    <span class="text--accent fw-bold">Important:</span> the
+                    config uses <code>server_name $host;</code> and
+                    <code>absolute_redirect off;</code> so nginx never redirects
+                    you to <code>http://localhost:8080</code>.
+                  </p>
+
+                  <h5 class="mt-4">3. Create the database</h5>
+                  <hr />
+                  <pre class="doc-code"><code>sudo mysql -e "CREATE DATABASE changalab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+sudo mysql -e "CREATE USER IF NOT EXISTS 'changalab'@'localhost' IDENTIFIED BY 'changalab123';"
+sudo mysql -e "GRANT ALL PRIVILEGES ON changalab.* TO 'changalab'@'localhost';"
+sudo mysql -e "FLUSH PRIVILEGES;"</code></pre>
+
+                  <h5 class="mt-4">4. Fix storage permissions</h5>
+                  <hr />
+                  <pre class="doc-code"><code>cd /workspaces/changalab/Files
+sudo chown -R $(whoami):www-data core/storage core/bootstrap/cache
+mkdir -p core/storage/app/public
+chmod -R 0775 core/storage core/bootstrap/cache</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTALL -->
+        <div id="install" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Run the Installer</h5>
+                    <span class="doc-head__sub-title">
+                      Finish setup from the browser
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row g-4 align-items-center">
+                  <div class="col-xl-7">
+                    <div class="doc-body">
+                      <p class="lead">
+                        Open the forwarded port <strong>8080</strong> in your
+                        browser, then go to <code>/install</code>:
+                      </p>
+                      <pre
+                        class="doc-code"
+                      ><code>https://&lt;CODESPACE_NAME&gt;-8080.app.github.dev/install</code></pre>
+                      <p class="xl-text fw-md mt-4">Database details</p>
+                      <ul class="list" style="--gap: 0.2rem">
+                        <li><strong>Database Host:</strong> <code>127.0.0.1</code></li>
+                        <li><strong>Database Port:</strong> <code>3306</code></li>
+                        <li><strong>Database Name:</strong> <code>changalab</code></li>
+                        <li><strong>Database User:</strong> <code>changalab</code></li>
+                        <li><strong>Database Password:</strong> <code>changalab123</code></li>
+                      </ul>
+                      <p class="mt-4">
+                        <span class="text--accent fw-bold">Important:</span> the
+                        database must be <strong>empty</strong> before import. If
+                        you see
+                        <em>"Problem Occurred When Importing Database!"</em>,
+                        reset it:
+                      </p>
+                      <pre
+                        class="doc-code"
+                      ><code>sudo mysql changalab -e "DROP DATABASE changalab; CREATE DATABASE changalab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"</code></pre>
+                    </div>
+                  </div>
+                  <div class="col-xl-5">
+                    <div class="doc-body--alt t-center">
+                      <img
+                        src="assets/images/installation.png"
+                        alt="installation"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASSETS -->
+        <div id="assets" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Fix CSS / JS (localhost issue)</h5>
+                    <span class="doc-head__sub-title">
+                      Why the site looked unstyled and how it's solved
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <p class="lead">
+                    Behind the Codespace proxy, Laravel generated asset URLs
+                    like <code>http://localhost:8080/assets/...</code>. Those
+                    are unreachable from your browser, so the site appeared with
+                    no styling ("a disaster").
+                  </p>
+                  <p>This is already fixed in the repository:</p>
+                  <ul class="list list--base" style="--gap: 0.5rem">
+                    <li>
+                      <p class="m-0">
+                        <code>Files/index.php</code> reads the
+                        <code>X-Forwarded-Host</code> /
+                        <code>X-Forwarded-Proto</code> headers and overrides
+                        <code>$_SERVER['HTTP_HOST']</code> before Laravel boots,
+                        so every <code>asset()</code> uses the public
+                        <code>app.github.dev</code> URL.
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        <code>Files/core/app/Http/Middleware/TrustProxies.php</code>
+                        (registered in <code>bootstrap/app.php</code>) tells
+                        Laravel to trust the proxy headers as defense-in-depth.
+                      </p>
+                    </li>
+                  </ul>
+                  <p class="mt-4">
+                    If you ever change proxy behaviour, clear the cache after
+                    editing:
+                  </p>
+                  <pre
+                    class="doc-code"
+                  ><code>cd /workspaces/changalab/Files/core && php artisan optimize:clear
+sudo service php8.3-fpm restart</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACKUP -->
+        <div id="backup" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Backup &amp; Restore</h5>
+                    <span class="doc-head__sub-title">
+                      Protect your data if the Codespace is deleted
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <p class="lead">
+                    Stopping a Codespace keeps the disk (and database). Deleting
+                    it destroys everything. Use <code>scripts/backup.sh</code>
+                    to take a portable dump you can restore later.
+                  </p>
+                  <h5>Inside the Codespace</h5>
+                  <hr />
+                  <pre class="doc-code"><code>cd /workspaces/changalab
+bash scripts/backup.sh backup     # timestamped .sql.gz in backups/
+bash scripts/backup.sh list       # show existing dumps
+bash scripts/backup.sh restore backups/changalab-YYYYMMDD-HHMMSS.sql.gz</code></pre>
+                  <h5 class="mt-4">Pull the dump to your machine</h5>
+                  <hr />
+                  <pre class="doc-code"><code>CODE=&lt;CODESPACE_NAME&gt;
+gh codespace ssh --codespace $CODE -- "bash /workspaces/changalab/scripts/backup.sh backup"
+gh codespace cp $CODE:/workspaces/changalab/backups/&lt;file&gt;.sql.gz ./backups/</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">FAQ</h5>
+                    <span class="doc-head__sub-title">
+                      Common Codespace questions
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row mt-4">
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        Do I need to reinstall after stopping the Codespace?
+                      </p>
+                      <p class="m-0">
+                        No. Stopping only pauses it; the disk and database are
+                        preserved. Just restart the services
+                        (<code>mysql</code>, <code>php8.3-fpm</code>,
+                        <code>nginx</code>) and open the URL.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        What if the Codespace is deleted?
+                      </p>
+                      <p class="m-0">
+                        Recreate it from <code>main</code>; the devcontainer sets
+                        up services automatically. Then restore your database
+                        dump from <code>scripts/backup.sh</code>.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        The page redirects to localhost:8080.
+                      </p>
+                      <p class="m-0">
+                        Your nginx config is missing
+                        <code>absolute_redirect off;</code>. Re-apply
+                        <code>changalab.nginx</code> and reload nginx.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        Styles don't load (unstyled page).
+                      </p>
+                      <p class="m-0">
+                        That's the proxy/asset issue — already fixed in the
+                        repo. Make sure you're on the latest
+                        <code>main</code> and clear the cache.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="assets/js/lib/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap 5 js -->
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Simplebar Js  -->
+    <script src="assets/js/lib/simplebar.js"></script>
+    <!-- main js -->
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
