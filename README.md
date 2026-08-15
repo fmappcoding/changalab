@@ -13,6 +13,7 @@
   - `Files/index.php` — نقطة الدخول
 - `Documentation/` — توثيق الاستخدام ولوحة التحكم
 - `changalab.nginx` — إعداد nginx المرجعي لبيئة Codespace
+- `.devcontainer/` — إعداد تلقائي لـ Codespace (يُهيّئ الخدمات وقاعدة البيانات عند الإنشاء)
 
 ## المتطلبات
 
@@ -25,7 +26,10 @@
 
 ## التشغيل على GitHub Codespaces
 
-المشروع مُهيّأ للعمل داخل Codespace خلف بروكسي `*.app.github.dev` (المنفذ 8080). اتبع الخطوات لتشغيله دون مشاكل.
+المشروع مُهيّأ للعمل داخل Codespace خلف بروكسي `*.app.github.dev` (المنفذ 8080).
+يوجد مجلد `.devcontainer/` يُثبّت nginx + PHP-FPM + MariaDB ويطبّق إعداد nginx ويهيّئ
+قاعدة البيانات والصلاحيات **تلقائياً** عند إنشاء الـ Codespace. يكفي بعدها فتح المتصفح
+وإكمال معالج التثبيت.
 
 ### 1. إنشاء الـ Codespace
 
@@ -36,7 +40,14 @@
   gh codespace create --repo fmappcoding/changalab --branch main
   ```
 
-### 2. تثبيت الخدمات داخل الـ Codespace
+> عند الإنشاء يُنفَّذ `.devcontainer/setup.sh` تلقائياً (تثبيت الخدمات + إعداد nginx + إنشاء
+> قاعدة البيانات + صلاحيات `storage`). إن لم يُنفَّذ تلقائياً، شغّله يدوياً:
+>
+> ```bash
+> gh codespace ssh --codespace <CODESPACE_NAME> -- "bash /workspaces/changalab/.devcontainer/setup.sh"
+> ```
+
+### 2. (يدوي فقط) تثبيت الخدمات داخل الـ Codespace
 
 ادخل إلى الـ Codespace عبر الطرفية:
 
@@ -54,7 +65,7 @@ sudo service php8.3-fpm start
 sudo service mysql start
 ```
 
-### 3. إعداد nginx
+### 3. (يدوي فقط) إعداد nginx
 
 انسخ إعداد `changalab.nginx` المرفق إلى موقع المواقع:
 
@@ -68,7 +79,7 @@ sudo nginx -t && sudo nginx -s reload
 > **مهم:** إعداد nginx يحتوي على `server_name $host;` و `absolute_redirect off;`
 > وهما ضروريان حتى لا يعيد nginx توجيهك إلى `http://localhost:8080` عند فتح `/install`.
 
-### 4. تجهيز قاعدة البيانات
+### 4. (يدوي فقط) تجهيز قاعدة البيانات
 
 ```bash
 sudo mysql -e "CREATE DATABASE changalab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
@@ -77,7 +88,7 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON changalab.* TO 'changalab'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 ```
 
-### 5. الصلاحيات المطلوبة
+### 5. (يدوي فقط) الصلاحيات المطلوبة
 
 معالج التثبيت يتطلب صلاحية `0775` على هذه المجلدات، ولذلك أنشئها إذا لم تكن موجودة:
 
