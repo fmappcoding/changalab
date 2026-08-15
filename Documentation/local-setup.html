@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChangaLab - Local Installation &amp; Activation</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="assets/images/favicon.png"
+      sizes="16x16"
+      type="image/png"
+    />
+    <!-- bootstrap 5  -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href="assets/css/lib/font-awesome.css" />
+    <!-- lineawesome font -->
+    <link rel="stylesheet" href="assets/css/lib/line-awesome.css" />
+    <!-- Simplebar Js  -->
+    <link rel="stylesheet" href="assets/css/lib/simplebar.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#docNav" data-bs-offset="50">
+    <header class="mobile-header">
+      <div class="container">
+        <div class="row g-4 align-items-center justify-content-between">
+          <div class="col-6">
+            <!-- Logo  -->
+            <a href="index.html" class="logo">
+              <img
+                src="assets/images/logo.png"
+                alt="images"
+                class="img-fluid logo__is"
+              />
+            </a>
+            <!-- Logo End -->
+          </div>
+          <div class="col-6">
+            <div class="text-end">
+              <button type="button" class="btn btn--sqr sidebar-toggler">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="doc">
+      <div class="doc__sidebar" id="docNav">
+        <div class="doc-logo">
+          <!-- Logo  -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/logo.png"
+              alt="images"
+              class="img-fluid logo__is"
+            />
+          </a>
+          <!-- Logo End -->
+        </div>
+        <nav class="doc-nav" data-simplebar>
+          <ul class="list doc-nav__list">
+            <li>
+              <a href="index.html" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-arrow-left"></i>
+                  <span class="d-block">back to docs</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#overview" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-info-circle"></i>
+                  <span class="d-block">overview</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#requirements" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-server"></i>
+                  <span class="d-block">requirements</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#upload" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-upload"></i>
+                  <span class="d-block">upload files</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#database" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-database"></i>
+                  <span class="d-block">create database</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#installer" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-cog"></i>
+                  <span class="d-block">run easy installer</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#activation" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-check-circle"></i>
+                  <span class="d-block">activate license</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#webserver" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-globe"></i>
+                  <span class="d-block">web server</span></span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#troubleshoot" class="doc-nav__link nav-link">
+                <span class="list list--row align-items-center"
+                  ><i class="las la-tools"></i>
+                  <span class="d-block">troubleshooting</span></span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          <p class="m-0 text--white px-3 text-center">
+            Copyright ©
+            <a href="https://viserlab.com/" class="t-link t-link--canvas"
+              >ViserLab</a
+            >
+            2025
+          </p>
+        </div>
+      </div>
+      <div class="doc__body">
+        <!-- OVERVIEW -->
+        <div id="overview" class="section--sm section--first">
+          <div class="list">
+            <div class="doc-head">
+              <div class="doc-head__content">
+                <h5 class="doc-head__title">Local Installation &amp; Activation</h5>
+                <span class="doc-head__sub-title">
+                  Run ChangaLab on your own server
+                </span>
+              </div>
+            </div>
+            <div class="doc-body">
+              <p class="mt-4 lg-text">
+                This guide covers installing ChangaLab on a local machine or any
+                standard web server (VPS / shared hosting with SSH). It mirrors
+                the official ViserLab process and adds the
+                <strong>license activation</strong> step required to run the
+                script.
+              </p>
+              <p class="mt-4 lg-text">
+                For a cloud, zero-setup option, see
+                <a class="t-link" href="codespace-setup.html"
+                  >Run on GitHub Codespaces</a
+                >.
+              </p>
+              <blockquote class="blockquote text--accent">
+                The purchase code (license) is valid for
+                <strong>one domain/URL only</strong>. Activate it on the correct
+                URL to avoid issues.
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- REQUIREMENTS -->
+        <div id="requirements" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Requirements</h5>
+                    <span class="doc-head__sub-title">
+                      What your server needs
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row g-4 align-items-center">
+                  <div class="col-xl-4">
+                    <div class="doc-body">
+                      <ul class="list list--base" style="--gap: 0.5rem">
+                        <li>PHP Version 8.3</li>
+                        <li>MySQL 8.0+ or MariaDB 10.6+</li>
+                        <li>BCMath, Ctype, cURL, DOM, Fileinfo, GD</li>
+                        <li>JSON, Mbstring, OpenSSL, PCRE, PDO, pdo_mysql</li>
+                        <li>Tokenizer, XML, Filter, Hash, Session, Zip</li>
+                        <li>Composer</li>
+                        <li>Nginx or Apache with <code>mod_rewrite</code></li>
+                        <li><code>allow_url_fopen()</code> enabled</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-8">
+                    <div class="doc-body--alt t-center">
+                      <img
+                        src="assets/images/server.png"
+                        alt="server"
+                        class="img-fluid w-100"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPLOAD -->
+        <div id="upload" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Upload Files</h5>
+                    <span class="doc-head__sub-title">
+                      Place the app in your web root
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <ul class="list list--base" style="--gap: 0.5rem">
+                    <li>
+                      <p class="m-0">
+                        Extract the downloaded package. Inside you'll find a
+                        <code>Files</code> folder.
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        Move <strong>everything</strong> from
+                        <code>Files/</code> into your site's root (the directory
+                        your domain points to). Keep <code>index.php</code> and
+                        <code>.htaccess</code> at the root.
+                      </p>
+                    </li>
+                    <li>
+                      <p class="m-0">
+                        Run Composer to install PHP dependencies:
+                      </p>
+                    </li>
+                  </ul>
+                  <pre class="doc-code"><code>cd /path/to/your/site/root/Files/core
+composer install --no-dev --optimize-autoloader</code></pre>
+                  <h5 class="mt-4">Set storage permissions</h5>
+                  <hr />
+                  <pre class="doc-code"><code>cd /path/to/your/site/root
+chmod -R 0775 core/storage core/bootstrap/cache
+chown -R www-data:www-data core/storage core/bootstrap/cache</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATABASE -->
+        <div id="database" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Create the Database</h5>
+                    <span class="doc-head__sub-title">
+                      MySQL / MariaDB
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <p class="lead">
+                    Create an empty database and a user with full privileges.
+                    The installer will import its own schema, so the database
+                    must start <strong>empty</strong>.
+                  </p>
+                  <pre class="doc-code"><code>mysql -u root -p
+CREATE DATABASE changalab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'changalab'@'localhost' IDENTIFIED BY 'StrongPassword123';
+GRANT ALL PRIVILEGES ON changalab.* TO 'changalab'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;</code></pre>
+                  <p class="mt-3 m-0">
+                    Note these credentials — you'll enter them in the installer.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTALLER -->
+        <div id="installer" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Run the Easy Installer</h5>
+                    <span class="doc-head__sub-title">
+                      Browser-based setup
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row g-4 align-items-center">
+                  <div class="col-xl-7">
+                    <div class="doc-body">
+                      <p class="lead">
+                        Visit the installer in your browser:
+                      </p>
+                      <pre class="doc-code"><code>http://your-site-url/install</code></pre>
+                      <p class="xl-text fw-md mt-4">Steps</p>
+                      <ul class="list list--base" style="--gap: 0.5rem">
+                        <li><p class="m-0">Check requirements &amp; folder permissions (all green).</p></li>
+                        <li>
+                          <p class="m-0">
+                            Enter database details: host
+                            <code>127.0.0.1</code>, port <code>3306</code>,
+                            name/user/password you created above.
+                          </p>
+                        </li>
+                        <li><p class="m-0">The installer imports the database automatically.</p></li>
+                        <li>
+                          <p class="m-0">
+                            Set your admin email, username and password.
+                          </p>
+                        </li>
+                      </ul>
+                      <p class="mt-4">
+                        <span class="text--accent fw-bold">Note:</span> if import
+                        fails with
+                        <em>"Problem Occurred When Importing Database!"</em>,
+                        the database isn't empty — drop and recreate it, then
+                        retry.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xl-5">
+                    <div class="doc-body--alt t-center">
+                      <img
+                        src="assets/images/installation.png"
+                        alt="installation"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVATION -->
+        <div id="activation" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Activate the License</h5>
+                    <span class="doc-head__sub-title">
+                      Required to run ChangaLab
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row g-4 align-items-center">
+                  <div class="col-xl-7">
+                    <div class="doc-body">
+                      <p class="lead">
+                        After installation, the first visit shows the activation
+                        page. Provide your Envato / purchase details to verify
+                        the license with ViserLab's server.
+                      </p>
+                      <ul class="list list--base" style="--gap: 0.5rem">
+                        <li>
+                          <p class="m-0">
+                            <strong>Purchase Code:</strong> find it in your
+                            Envato/CodeCanyon download page ("License
+                            certificate").
+                          </p>
+                        </li>
+                        <li>
+                          <p class="m-0">
+                            <strong>Envato Username:</strong> the account that
+                            bought ChangaLab.
+                          </p>
+                        </li>
+                        <li>
+                          <p class="m-0">
+                            <strong>Email:</strong> used for future
+                            communication &amp; updates.
+                          </p>
+                        </li>
+                      </ul>
+                      <p class="mt-4">
+                        The provided info is sent to ViserLab for verification
+                        only — no sensitive data is collected. Once verified,
+                        the system is ready to use.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-xl-5">
+                    <div class="doc-body--alt t-center">
+                      <img
+                        src="assets/images/activation.png"
+                        alt="activation"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEBSERVER -->
+        <div id="webserver" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Web Server</h5>
+                    <span class="doc-head__sub-title">
+                      Point the document root to index.php
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="doc-body">
+                  <h5>Nginx (recommended)</h5>
+                  <hr />
+                  <pre class="doc-code"><code>server {
+    listen 80;
+    server_name your-site-url;
+    root /path/to/site/root;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+    }
+    location ~ /(core|storage|vendor)/.*\.(php|env|json|lock)$ { deny all; }
+}</code></pre>
+                  <h5 class="mt-4">Apache</h5>
+                  <hr />
+                  <p class="m-0">
+                    Make sure <code>mod_rewrite</code> is enabled and the shipped
+                    <code>.htaccess</code> stays at the root. Set
+                    <code>DocumentRoot</code> to the site root.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TROUBLESHOOT -->
+        <div id="troubleshoot" class="section--sm">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="doc-head">
+                  <div class="doc-head__content">
+                    <h5 class="doc-head__title">Troubleshooting</h5>
+                    <span class="doc-head__sub-title">
+                      Fix common local-install issues
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="row mt-4">
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        Storage permission errors during install.
+                      </p>
+                      <p class="m-0">
+                        Run
+                        <code>chmod -R 0775 core/storage core/bootstrap/cache</code>
+                        and ensure the web server owns them.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        "Database not empty" on import.
+                      </p>
+                      <p class="m-0">
+                        Drop and recreate the database, then run the installer
+                        again.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        Activation fails / invalid purchase code.
+                      </p>
+                      <p class="m-0">
+                        Confirm the code is copied exactly and the domain
+                        matches the licensed URL. One license = one domain.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="faq-body">
+                      <p class="mb-2 fw-bold text--canvas">
+                        500 error after moving files.
+                      </p>
+                      <p class="m-0">
+                        Run <code>composer install</code> in
+                        <code>Files/core</code> and check that
+                        <code>.env</code> exists with correct DB credentials.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="assets/js/lib/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap 5 js -->
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Simplebar Js  -->
+    <script src="assets/js/lib/simplebar.js"></script>
+    <!-- main js -->
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
